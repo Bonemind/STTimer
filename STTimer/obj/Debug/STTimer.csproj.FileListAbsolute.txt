@@ -15,3 +15,5 @@ D:\Projects\STTimer\STTimer\STTimer\obj\Debug\PageSwitcher.g.cs
 D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\LoginWindow.g.cs
 D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\TaskListWindow.baml
 D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\TaskListWindow.g.cs
+D:\Projects\STTimer\STTimer\STTimer\bin\Debug\RestSharp.dll
+D:\Projects\STTimer\STTimer\STTimer\bin\Debug\RestSharp.xml

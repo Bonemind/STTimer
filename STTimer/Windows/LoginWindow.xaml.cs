@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RestSharp;
+using STTimer.ApiObjects;
 
 namespace STTimer.Windows
 {
@@ -32,7 +34,15 @@ namespace STTimer.Windows
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new TaskListWindow(), userBox.Text + ":" + passwordBox.Password);
+            ApiWrapper.Instance.Login(userBox.Text, passwordBox.Password);
+            if (ApiWrapper.Instance.isLoggedIn())
+            {
+                Switcher.Switch(new TaskListWindow());
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password");
+            }
         }
     }
 }

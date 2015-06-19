@@ -21,28 +21,44 @@ namespace STTimer
     /// </summary>
     public partial class PageSwitcher : Window
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public PageSwitcher()
         {
             InitializeComponent();
+            //Setup the pageswitcher
             Switcher.pageSwitcher = this;
+            //Switch to our main window
             Switcher.Switch(new LoginWindow());
         }
 
+        /// <summary>
+        /// Navigates to a page
+        /// </summary>
+        /// <param name="nextPage">The page to navigate to</param>
         public void Navigate(UserControl nextPage)
         {
             this.Content = nextPage;
         }
 
+        /// <summary>
+        /// Switches to a page with a state
+        /// </summary>
+        /// <param name="nextPage">The page to navigate to</param>
+        /// <param name="state">The state to pass along</param>
         public void Navigate(UserControl nextPage, object state)
         {
             this.Content = nextPage;
             ISwitchable s = nextPage as ISwitchable;
 
-            if (s != null)
+            if (s != null) {
                 s.UtilizeState(state);
+            }
             else
-                throw new ArgumentException("NextPage is not ISwitchable! "
-                  + nextPage.Name.ToString());
+            {
+                throw new ArgumentException("NextPage is not ISwitchable! " + nextPage.Name.ToString());
+            }
         }
 
     }
