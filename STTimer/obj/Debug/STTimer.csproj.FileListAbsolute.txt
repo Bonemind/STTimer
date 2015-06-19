@@ -17,3 +17,7 @@ D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\TaskListWindow.baml
 D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\TaskListWindow.g.cs
 D:\Projects\STTimer\STTimer\STTimer\bin\Debug\RestSharp.dll
 D:\Projects\STTimer\STTimer\STTimer\bin\Debug\RestSharp.xml
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\TaskTrackWindow.baml
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\TaskTrackWindow.g.cs
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Components\TimeConfirm.baml
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Components\TimeConfirm.g.cs

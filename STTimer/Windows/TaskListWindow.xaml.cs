@@ -27,13 +27,42 @@ namespace STTimer.Windows
             List<STTimer.ApiObjects.Task> tasks = ApiWrapper.Instance.getTasks();
             tasks.RemoveAll(x => x.owner != currUser.id);
             tasks.RemoveAll(x => x.status == "DONE");
-            foreach (Task task in tasks) {
-                Console.WriteLine(task.name);
-            }
+            taskListView.ItemsSource = tasks;
         }
 
         public void UtilizeState(object state)
         {
+        }
+
+        private void taskListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Task task = ((ListView) sender).SelectedItem as Task;
+            if (task == null)
+            {
+                return;
+            }
+
+            Console.WriteLine(task.id);
+        }
+
+        private void ListViewItem_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+            Task task = ((ListView) sender).SelectedItem as Task;
+            if (task == null)
+            {
+                return;
+            }
+            Console.WriteLine(task.id);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (taskListView.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a task to track");
+            }
+            Switcher.Switch(new TaskTrackWindow(), taskListView.SelectedItem);
         }
     }
 }

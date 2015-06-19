@@ -72,5 +72,16 @@ namespace STTimer
             }
             return token.user;
         }
+
+        public void saveTaskEffort(STTimer.ApiObjects.Task task, double hours) {
+            EffortData effortData = new EffortData(hours);
+            RestRequest req = new RestRequest("task/{id}/effort", Method.POST);
+            req.AddUrlSegment("id", task.id.ToString());
+            req.AddJsonBody(effortData);
+            RestResponse resp = (RestResponse) client.Execute(req);
+            Console.WriteLine(resp.StatusCode);
+            Console.WriteLine(resp.Content);
+            Switcher.Switch(new STTimer.Windows.TaskListWindow());
+        }
     }
 }

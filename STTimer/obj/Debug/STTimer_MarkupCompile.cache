@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projects\STTimer\STTimer\STTimer\App.xaml
-3-1265140516
+5480634062
 
-14-1356625571
+17-679804509
 1367412035
-PageSwitcher.xaml;Windows\LoginWindow.xaml;Windows\TaskListWindow.xaml;
+Components\TimeConfirm.xaml;PageSwitcher.xaml;Windows\LoginWindow.xaml;Windows\TaskListWindow.xaml;Windows\TaskTrackWindow.xaml;
 
 False
 

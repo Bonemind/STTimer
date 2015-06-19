@@ -56,11 +56,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApiObjects\EffortData.cs" />
     <Compile Include="ApiObjects\LoginData.cs" />
     <Compile Include="ApiObjects\Task.cs" />
     <Compile Include="ApiObjects\Token.cs" />
     <Compile Include="ApiObjects\User.cs" />
     <Compile Include="ApiWrapper.cs" />
+    <Compile Include="Components\TimeConfirm.xaml.cs">
+      <DependentUpon>TimeConfirm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Switcher.cs" />
     <Compile Include="Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -68,7 +72,14 @@
     <Compile Include="Windows\TaskListWindow.xaml.cs">
       <DependentUpon>TaskListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\TaskTrackWindow.xaml.cs">
+      <DependentUpon>TaskTrackWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFPageSwitch.cs" />
+    <Page Include="Components\TimeConfirm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageSwitcher.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\TaskListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TaskTrackWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,6 +133,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
