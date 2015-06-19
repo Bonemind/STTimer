@@ -1,0 +1,17 @@
+D:\Projects\STTimer\STTimer\STTimer\bin\Debug\STTimer.exe.config
+D:\Projects\STTimer\STTimer\STTimer\bin\Debug\STTimer.exe
+D:\Projects\STTimer\STTimer\STTimer\bin\Debug\STTimer.pdb
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\STTimer.csprojResolveAssemblyReference.cache
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\App.g.cs
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\STTimer_MarkupCompile.cache
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\STTimer.g.resources
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\STTimer.Properties.Resources.resources
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\STTimer.csproj.GenerateResource.Cache
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\STTimer.exe
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\STTimer.pdb
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\PageSwitcher.baml
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\LoginWindow.baml
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\PageSwitcher.g.cs
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\LoginWindow.g.cs
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\TaskListWindow.baml
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\TaskListWindow.g.cs
