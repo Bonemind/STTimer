@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using STTimer.Windows;
+using Hardcodet.Wpf.TaskbarNotification;
+using System.Drawing;
 
 namespace STTimer
 {
@@ -21,6 +23,8 @@ namespace STTimer
     /// </summary>
     public partial class PageSwitcher : Window
     {
+        private TaskbarIcon taskBarIcon;
+        private MinMaxCommand command;
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -31,6 +35,27 @@ namespace STTimer
             Switcher.pageSwitcher = this;
             //Switch to our main window
             Switcher.Switch(new LoginWindow());
+            taskBarIcon = new TaskbarIcon();
+            command = new MinMaxCommand(this);
+            taskBarIcon.Icon = STTimer.Properties.Resources.timerIcon;
+            taskBarIcon.ToolTipText = "Hello World!";
+            taskBarIcon.MouseLeftButtonUp += taskBarIcon_MouseLeftButtonUp;
+            taskBarIcon.MouseRightButtonDown += taskBarIcon_MouseLeftButtonUp;
+            taskBarIcon.DoubleClickCommand = command;
+            this.ResizeMode = ResizeMode.NoResize;
+        }
+
+        void taskBarIcon_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("Callback");
+            if (this.WindowState == WindowState.Minimized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = WindowState.Minimized;
+            }
         }
 
         /// <summary>
