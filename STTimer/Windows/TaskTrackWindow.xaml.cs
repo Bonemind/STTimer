@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using STTimer.Components;
+using NHotkey.Wpf;
 
 namespace STTimer.Windows
 {
@@ -31,8 +32,15 @@ namespace STTimer.Windows
         /// Timer to use
         /// </summary>
         private DispatcherTimer timer;
-        private const int TIMER_INTERVAL = 1000;
+
+        /// <summary>
+        /// The total elapsed time
+        /// </summary>
         private int elapsed;
+
+        /// <summary>
+        /// Returnes the total elapsed ms
+        /// </summary>
         public int timeElapsedMs
         {
             get
@@ -40,6 +48,10 @@ namespace STTimer.Windows
                 return this.elapsed;
             }
         }
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public TaskTrackWindow()
         {
             elapsed = 0;
@@ -47,8 +59,41 @@ namespace STTimer.Windows
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.Tick += timer_Tick;
+            try
+            {
+                HotkeyManager.Current.AddOrReplace("TimerStartStop", Key.F12, ModifierKeys.Control, toggleTimer);
+            }
+            catch (NHotkey.HotkeyAlreadyRegisteredException ex)
+            {
+                MessageBox.Show("The toggle hotkey is already registered by another application, toggleing will not work");
+            }
+            timerLabel.Content = formatTime(elapsed);
         }
 
+        /// <summary>
+        /// Handles toggleing of a time via hotkey
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void toggleTimer(object sender, EventArgs e)
+        {
+            if (timer.IsEnabled)
+            {
+                timer.Stop();
+                pauseButton.Content = "Start";
+            }
+            else
+            {
+                timer.Start();
+                pauseButton.Content = "Pause";
+            }
+        }
+
+        /// <summary>
+        /// Handles the tick of a timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void timer_Tick(object sender, EventArgs e)
         {
             if (task == null)
@@ -66,7 +111,8 @@ namespace STTimer.Windows
         /// <param name="state">The task to track</param>
         public void UtilizeState(object state)
         {
-            task = (STTimer.ApiObjects.Task)state; 
+            task = (STTimer.ApiObjects.Task)state;
+            taskName.Content = task.name;
         }
 
         /// <summary>
@@ -88,16 +134,7 @@ namespace STTimer.Windows
         /// <param name="e"></param>
         private void pauseButton_Click(object sender, RoutedEventArgs e)
         {
-            if (timer.IsEnabled)
-            {
-                timer.Stop();
-                pauseButton.Content = "Start";
-            }
-            else
-            {
-                timer.Start();
-                pauseButton.Content = "Pause";
-            }
+            toggleTimer(null, null);
         }
 
         /// <summary>
@@ -153,6 +190,16 @@ namespace STTimer.Windows
 
             //Save the time
             ApiWrapper.Instance.saveTaskEffort(task, effort);
+        }
+
+        /// <summary>
+        /// Switches back to the tasklist window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new TaskListWindow());
         }
     }
 }

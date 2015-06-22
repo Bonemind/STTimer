@@ -23,8 +23,17 @@ namespace STTimer
     /// </summary>
     public partial class PageSwitcher : Window
     {
+        /// <summary>
+        /// The taskbaricon to display
+        /// </summary>
         private TaskbarIcon taskBarIcon;
+
+        /// <summary>
+        /// The command to execute when taskbaricon is doubleclicked
+        /// </summary>
         private MinMaxCommand command;
+
+
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -35,27 +44,20 @@ namespace STTimer
             Switcher.pageSwitcher = this;
             //Switch to our main window
             Switcher.Switch(new LoginWindow());
-            taskBarIcon = new TaskbarIcon();
-            command = new MinMaxCommand(this);
-            taskBarIcon.Icon = STTimer.Properties.Resources.timerIcon;
-            taskBarIcon.ToolTipText = "Hello World!";
-            taskBarIcon.MouseLeftButtonUp += taskBarIcon_MouseLeftButtonUp;
-            taskBarIcon.MouseRightButtonDown += taskBarIcon_MouseLeftButtonUp;
-            taskBarIcon.DoubleClickCommand = command;
-            this.ResizeMode = ResizeMode.NoResize;
-        }
 
-        void taskBarIcon_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            Console.WriteLine("Callback");
-            if (this.WindowState == WindowState.Minimized)
-            {
-                this.WindowState = WindowState.Normal;
-            }
-            else
-            {
-                this.WindowState = WindowState.Minimized;
-            }
+            //Creates the taskbar icon
+            taskBarIcon = new TaskbarIcon();
+
+            //Creates the minmax command
+            command = new MinMaxCommand(this);
+
+            //Sets the taskbar icon properties
+            taskBarIcon.Icon = STTimer.Properties.Resources.timerIcon;
+            taskBarIcon.ToolTipText = "Task Timer";
+            taskBarIcon.DoubleClickCommand = command;
+
+            //Remove max and min buttons
+            this.ResizeMode = ResizeMode.NoResize;
         }
 
         /// <summary>

@@ -24,3 +24,7 @@ D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Components\TimeConfirm.g.cs
 D:\Projects\STTimer\STTimer\STTimer\bin\Debug\Hardcodet.Wpf.TaskbarNotification.dll
 D:\Projects\STTimer\STTimer\STTimer\bin\Debug\Hardcodet.Wpf.TaskbarNotification.pdb
 D:\Projects\STTimer\STTimer\STTimer\bin\Debug\Hardcodet.Wpf.TaskbarNotification.xml
+D:\Projects\STTimer\STTimer\STTimer\bin\Debug\NHotkey.dll
+D:\Projects\STTimer\STTimer\STTimer\bin\Debug\NHotkey.Wpf.dll
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\SettingsControl.baml
+D:\Projects\STTimer\STTimer\STTimer\obj\Debug\Windows\SettingsControl.g.cs

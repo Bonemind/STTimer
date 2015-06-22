@@ -58,5 +58,15 @@ namespace STTimer.Windows
                 MessageBox.Show("Invalid username or password");
             }
         }
+
+        /// <summary>
+        /// Switches to the settings window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void settingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new SettingsControl());
+        }
     }
 }

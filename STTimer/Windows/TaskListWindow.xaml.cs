@@ -55,6 +55,7 @@ namespace STTimer.Windows
             if (taskListView.SelectedItem == null)
             {
                 MessageBox.Show("Please select a task to track");
+                return;
             }
             Switcher.Switch(new TaskTrackWindow(), taskListView.SelectedItem);
         }

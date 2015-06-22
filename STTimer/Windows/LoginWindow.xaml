@@ -6,9 +6,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBox x:Name="userBox" HorizontalAlignment="Left" Height="23" Margin="51,66,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="51,112,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="96,160,0,0" VerticalAlignment="Top" Width="75" Click="loginButton_Click"/>
+        <TextBox x:Name="userBox" HorizontalAlignment="Left" Height="23" Margin="51,59,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="195"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="51,112,0,0" VerticalAlignment="Top" Width="195"/>
+        <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="171,158,0,0" VerticalAlignment="Top" Width="75" Click="loginButton_Click" IsDefault="True"/>
+        <Button x:Name="settingsButton" Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="171,196,0,0" Click="settingsButton_Click"/>
 
     </Grid>
 </UserControl>

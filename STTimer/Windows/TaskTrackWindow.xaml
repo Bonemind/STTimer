@@ -6,9 +6,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Label x:Name="timerLabel" Content="{Binding timeElapsedMs}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,94,0,0" Height="57" Width="101" HorizontalContentAlignment="Center" FontSize="36" FontWeight="Bold"/>
-        <Button x:Name="pauseButton" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Margin="10,0,0,83" Click="pauseButton_Click"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="129,197,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.227,0.45" Click="Button_Click"/>
+        <Label x:Name="timerLabel" Content="{Binding timeElapsedMs}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,144,0,0" Height="98" Width="253" HorizontalContentAlignment="Center" FontSize="36" FontWeight="Bold"/>
+        <Button x:Name="pauseButton" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="22,270,0,0" Click="pauseButton_Click"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="102,270,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.227,0.45" Click="Button_Click"/>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="182,270,0,0" VerticalAlignment="Top" Width="75" Click="backButton_Click" RenderTransformOrigin="0.587,2.4"/>
+        <Label x:Name="taskName" Content="Task" HorizontalAlignment="Left" Margin="22,57,0,0" VerticalAlignment="Top" Width="235" Height="53" FontSize="24"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top" Height="33" Width="75" FontSize="20" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>

@@ -33,7 +33,7 @@ namespace STTimer
         /// </summary>
         private ApiWrapper()
         {
-            client = new RestClient("http://localhost:8182/");
+            client = new RestClient(Properties.Settings.Default.BaseURL);
         }
 
         /// <summary>
@@ -134,6 +134,14 @@ namespace STTimer
 
             //Switch back to the tasklist window
             Switcher.Switch(new STTimer.Windows.TaskListWindow());
+        }
+
+        /// <summary>
+        /// Destroys the current api object
+        /// </summary>
+        public void destroy()
+        {
+            instance = null;            
         }
     }
 }
