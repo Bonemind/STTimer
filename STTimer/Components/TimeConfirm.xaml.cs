@@ -15,10 +15,15 @@ using System.Windows.Shapes;
 namespace STTimer.Components
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Confirmation window for the time spent on a task
     /// </summary>
     public partial class TimeConfirmDialog : Window
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="question">The question to pose to the user</param>
+        /// <param name="answer">The answer the user gave</param>
         public TimeConfirmDialog(string question, string answer)
         {
             InitializeComponent( );
@@ -26,17 +31,30 @@ namespace STTimer.Components
             txtAnswer.Text = answer;
         }
 
+        /// <summary>
+        /// Confirms the time in the dialog
+        /// </summary>
+        /// <param name="sender">The ok button used to trigger the confirmation</param>
+        /// <param name="e">The event params</param>
         private void btnDialogOk_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
         }
 
+        /// <summary>
+        /// Called after the contents of the dialog are rendered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_ContentRendered(object sender, EventArgs e)
         {
             txtAnswer.SelectAll();
             txtAnswer.Focus();
         }
 
+        /// <summary>
+        /// Answer property to be able to get the time a user has spent
+        /// </summary>
         public string Answer
         {
             get { return txtAnswer.Text; }

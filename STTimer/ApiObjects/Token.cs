@@ -6,11 +6,24 @@ using System.Threading.Tasks;
 
 namespace STTimer.ApiObjects
 {
+    /// <summary>
+    /// Represents a server token object
+    /// </summary>
     class Token
     {
-        //public int dateCreation {get; set;}
+        /// <summary>
+        /// The token string we have to use
+        /// </summary>
         public string token { get; set; }
+
+        /// <summary>
+        /// The user object this token belongs to
+        /// </summary>
         public User user { get; set; }
+
+        /// <summary>
+        /// Whether this token is valid
+        /// </summary>
         public bool valid { get; set; }
     }
 }

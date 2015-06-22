@@ -22,16 +22,30 @@ namespace STTimer.Windows
     /// </summary>
     public partial class LoginWindow : UserControl, ISwitchable
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public LoginWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Implementation of ISWitchable
+        /// LoginWindow does not need a state, so ignored
+        /// </summary>
+        /// <param name="state">The state passed to this view</param>
         void ISwitchable.UtilizeState(object state)
         {
-            Console.WriteLine(state);
+            //Void
         }
 
+        /// <summary>
+        /// Tries to login the user
+        /// Switches to the tasklist on success, and displays an error otherwise
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
             ApiWrapper.Instance.Login(userBox.Text, passwordBox.Password);

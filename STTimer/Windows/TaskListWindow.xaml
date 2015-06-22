@@ -18,7 +18,7 @@
                         <StackPanel>
                             <TextBlock Text="{Binding name}" FontWeight="Bold"></TextBlock>
                             <TextBlock Text="{Binding description}" FontStyle="Italic"></TextBlock>
-                            <TextBlock Text="{Binding timeSpent}" FontStyle="Italic"></TextBlock>
+                            <TextBlock Text="{Binding timeSpent, StringFormat=Time spent: {0}}" FontStyle="Italic"></TextBlock>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

@@ -22,7 +22,14 @@ namespace STTimer.Windows
     /// </summary>
     public partial class TaskTrackWindow : UserControl, ISwitchable
     {
+        /// <summary>
+        /// The task we are trackjing
+        /// </summary>
         private STTimer.ApiObjects.Task task;
+
+        /// <summary>
+        /// Timer to use
+        /// </summary>
         private DispatcherTimer timer;
         private const int TIMER_INTERVAL = 1000;
         private int elapsed;
@@ -52,11 +59,21 @@ namespace STTimer.Windows
             timerLabel.Content = formatTime(elapsed);
         }
 
+        /// <summary>
+        /// Implements ISwitchable
+        /// We need to know which task we are tracking
+        /// </summary>
+        /// <param name="state">The task to track</param>
         public void UtilizeState(object state)
         {
             task = (STTimer.ApiObjects.Task)state; 
         }
 
+        /// <summary>
+        /// Formats the elapsed time to a human readable format
+        /// </summary>
+        /// <param name="seconds">The number of seconds that have elapsed</param>
+        /// <returns>String in the format HH:MM</returns>
         private string formatTime(int seconds)
         {
             string hours = "0" + Math.Floor((double)seconds / 3600);
@@ -64,6 +81,11 @@ namespace STTimer.Windows
             return String.Format("{0}:{1}", hours.Substring(hours.Length -2), minutes.Substring(minutes.Length - 2));
         }
 
+        /// <summary>
+        /// Toggles the timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pauseButton_Click(object sender, RoutedEventArgs e)
         {
             if (timer.IsEnabled)
@@ -78,12 +100,20 @@ namespace STTimer.Windows
             }
         }
 
+        /// <summary>
+        /// Saves the elapsed time to the sever
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //Stop the timer so we stay at the time at the moment the user wants to save
             if (timer.IsEnabled)
             {
                 timer.Stop();
             }
+
+            //Lets the user check and optionally edit how much time he has spent on a task
             TimeConfirmDialog confirm = new TimeConfirmDialog("Please check your time", formatTime(elapsed));
             if (confirm.ShowDialog() == true)
             {
@@ -91,16 +121,15 @@ namespace STTimer.Windows
                 string time = confirm.Answer;
                 saveEffort(time);
             }
-            else 
-            {
-                Console.WriteLine("Denied");
-                return;
-            }
-            
         }
 
+        /// <summary>
+        /// Persists the time to the server
+        /// </summary>
+        /// <param name="time">The formatted time string in format HH:MM to persist</param>
         private void saveEffort(string time)
         {
+            //Parse the time to hours and minutes
             string[] split = time.Split(':');
             if (split.Length != 2)
             {
@@ -118,7 +147,11 @@ namespace STTimer.Windows
             {
                 MessageBox.Show("Please only enter numbers in the minute and second portions");
             }
+
+            //Turn the hours and minuts into a double (5 hours and 30 minuts becomes 5.5)
             double effort = hours + (minutes / 60);
+
+            //Save the time
             ApiWrapper.Instance.saveTaskEffort(task, effort);
         }
     }

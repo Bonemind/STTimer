@@ -20,6 +20,10 @@ namespace STTimer.Windows
     /// </summary>
     public partial class TaskListWindow : UserControl, ISwitchable
     {
+        /// <summary>
+        /// Default constructor
+        /// Fetches the tasks assigned to a user, that are not done
+        /// </summary>
         public TaskListWindow()
         {
             InitializeComponent();
@@ -30,32 +34,22 @@ namespace STTimer.Windows
             taskListView.ItemsSource = tasks;
         }
 
+        /// <summary>
+        /// Implements ISwitchable
+        /// Tasklist does not need a state, so it is ignored
+        /// </summary>
+        /// <param name="state">The state to pass</param>
         public void UtilizeState(object state)
         {
+            //Void
         }
 
-        private void taskListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Task task = ((ListView) sender).SelectedItem as Task;
-            if (task == null)
-            {
-                return;
-            }
-
-            Console.WriteLine(task.id);
-        }
-
-        private void ListViewItem_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-
-            Task task = ((ListView) sender).SelectedItem as Task;
-            if (task == null)
-            {
-                return;
-            }
-            Console.WriteLine(task.id);
-        }
-
+        /// <summary>
+        /// Starts tracking a task
+        /// Switches to the TaskTrackWindow and passes the selected task
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (taskListView.SelectedItem == null)
