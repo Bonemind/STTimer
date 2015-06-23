@@ -62,7 +62,7 @@ namespace STTimer
             //Build the request
             RestRequest req = new RestRequest("auth/login", Method.POST);
             req.AddJsonBody(new LoginData(username, password));
-            req.RootElement = "";
+            req.RootElement = "data";
 
             //Send the request and deserialize the response as a token object
             var resp = client.Execute<Token>(req);
@@ -99,6 +99,7 @@ namespace STTimer
             }
 
             RestRequest req = new RestRequest("task", Method.GET);
+            req.RootElement = "data";
             List<STTimer.ApiObjects.Task> tasks;
             tasks = client.Execute<List<STTimer.ApiObjects.Task>>(req).Data;
             return tasks;
@@ -128,6 +129,7 @@ namespace STTimer
 
             //Execute the request
             RestRequest req = new RestRequest("task/{id}/effort", Method.POST);
+            req.RootElement = "data";
             req.AddUrlSegment("id", task.id.ToString());
             req.AddJsonBody(effortData);
             RestResponse resp = (RestResponse) client.Execute(req);
